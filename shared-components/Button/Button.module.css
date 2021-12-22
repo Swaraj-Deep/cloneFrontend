@@ -1,0 +1,72 @@
+.button {
+  padding: 0.4em;
+  border-radius: 0.5em;
+  outline: none;
+  width: 6em;
+  letter-spacing: 0.07em;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.button:hover {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.3));
+}
+
+.button:active {
+  transform: scale(0.98);
+  box-shadow: 0.3em 0.2em 0.2em 0.1em rgba(0, 0, 0, 0.15);
+}
+
+.buttonPrimary {
+  border: 0.1em solid dodgerblue;
+  color: white;
+  background: dodgerblue;
+}
+
+.buttonSecondary {
+  border: 0.1em solid #6c757d;
+  color: white;
+  background: #6c757d;
+}
+
+.buttonDanger {
+  border: 0.1em solid #dc3545;
+  color: white;
+  background: #dc3545;
+}
+
+.buttonPrimaryOutline {
+  border: 0.1em solid dodgerblue;
+  color: dodgerblue;
+  background: none;
+}
+
+.buttonPrimaryOutline:hover {
+  border: 0.1em solid dodgerblue;
+  color: #fff;
+  background: dodgerblue;
+}
+
+.buttonSecondaryOutline {
+  border: 0.1em solid #6c757d;
+  color: #6c757d;
+  background: none;
+}
+
+.buttonSecondaryOutline:hover {
+  border: 0.1em solid #6c757d;
+  color: #fff;
+  background: #6c757d;
+}
+
+.buttonDangerOutline {
+  border: 0.1em solid #dc3545;
+  color: #dc3545;
+  background: none;
+}
+
+.buttonDangerOutline:hover {
+  border: 0.1em solid #dc3545;
+  color: #fff;
+  background: #dc3545;
+}

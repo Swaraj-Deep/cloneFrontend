@@ -1,0 +1,25 @@
+.input {
+  border: 0.1em solid black;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  outline: none;
+}
+
+.input:focus {
+  border: 0.1em solid dodgerblue;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  outline: none;
+}
+
+.inputSmall {
+  width: 5em;
+}
+
+.inputMedium {
+  width: 10em;
+}
+
+.inputLarge {
+  width: 20em;
+}
