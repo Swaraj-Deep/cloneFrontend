@@ -1,0 +1,26 @@
+.formpage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 730px;
+  align-items: center;
+}
+
+.h2 {
+  text-align: center;
+  font-size: 3em;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: darkgreen;
+}
+
+.formElement {
+  display: flex;
+  flex-direction: column;
+  padding: 0.3em;
+}
+
+/* .formbox {
+  border: 1px solid #ccc !important;
+  border-radius: 1em;
+  padding: 2em;
+} */
