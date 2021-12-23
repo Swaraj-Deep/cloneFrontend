@@ -1,3 +1,3 @@
-import UserRegistration from './UserRegistration';
+import UserRegistration from "./UserRegistration";
 
-export default UserRegistration;
+// export default UserRegistration;

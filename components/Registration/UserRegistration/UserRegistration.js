@@ -118,7 +118,7 @@ export default function UserRegistration(props) {
           />
         </div>
 
-        <div className={styles.formElement}>
+        {/* <div className={styles.formElement}>
           <Label text={"Confirm Password:"} htmlFor={""} />
           <Input
             value={matchPassword}
@@ -126,7 +126,7 @@ export default function UserRegistration(props) {
             type={"password"}
             size={"lg"}
           />
-        </div>
+        </div> */}
         <div className={styles.formElement} style={{ "align-items": "center" }}>
           <Button
             text={"Join"}
