@@ -5,20 +5,30 @@ import Label from "../../../shared-components/Label";
 import styles from "./UserRegistration.module.css";
 
 export default function UserRegistration(props) {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [dob, setDob] = useState("");
-  const [gender, setGender] = useState("Male");
-  const [address, setAddress] = useState("");
-  const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
-  const [matchPassword, setMatchPassword] = useState("");
+  // const [firstName, setFirstName] = useState("");
+  // const [lastName, setLastName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [dob, setDob] = useState("");
+  // const [gender, setGender] = useState("");
+  // const [address, setAddress] = useState("");
+  // const [phone, setPhone] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [matchPassword, setMatchPassword] = useState("");
+  const [formState, setFormState] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    dob: '',
+    gender: '',
+    address: '',
+    phone: '',
+    password: '',
+    confirmPassword: ''
+  });
 
-  console.log("re render");
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(gender);
+    console.log(formState);
   }
 
   return (
@@ -32,8 +42,12 @@ export default function UserRegistration(props) {
             <div className={styles.formElement}>
               <Label text={"First Name:"} htmlFor={"firstName"}/>
               <Input
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
+                value={formState.firstName}
+                onChange={(e) => setFormState(prevFormState => {
+                  return {
+                    ...prevFormState, firstName: e.target.value
+                  }
+                })}
                 type={"text"}
                 id={'firstName'}
                 size={"md"}
@@ -43,8 +57,12 @@ export default function UserRegistration(props) {
             <div className={styles.formElement}>
               <Label text={"Last Name:"} htmlFor={"lastName"}/>
               <Input
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
+                value={formState.lastName}
+                onChange={(e) => setFormState(prevFromState => {
+                  return {
+                    ...prevFromState, lastName: e.target.value
+                  }
+                })}
                 type={"text"}
                 size={"md"}
                 id={'lastName'}
@@ -55,8 +73,12 @@ export default function UserRegistration(props) {
           <div className={styles.formElement}>
             <Label text={"Email:"} htmlFor={"email"}/>
             <Input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={formState.email}
+              onChange={(e) => setFormState(prevFormState => {
+                return {
+                  ...prevFormState, email: e.target.value
+                }
+              })}
               type={"email"}
               size={"lg"}
               id={"email"}
@@ -66,8 +88,10 @@ export default function UserRegistration(props) {
           <div className={styles.formElement}>
             <Label text={"D.O.B:"} htmlFor={"dob"}/>
             <Input
-              value={dob}
-              onChange={(e) => setDob(e.target.value)}
+              value={formState.dob}
+              onChange={(e) => setFormState(prevFormState => {
+                return {...prevFormState, dob: e.target.value}
+              })}
               type={"date"}
               size={"lg"}
               id={"dob"}
@@ -77,26 +101,38 @@ export default function UserRegistration(props) {
             <Label text={"Gender:"}/>
             <Input
               type="radio"
-              value={gender}
+              value={formState.gender}
               name={'gender'}
               id={"male"}
-              onChange={(e) => setGender("Male")}
+              onChange={(e) => setFormState(prevFormState => {
+                return {
+                  ...prevFormState, gender: "Male"
+                }
+              })}
             />{" "}
             <Label text={"Male"} htmlFor={'male'}/>
             <Input
               type="radio"
-              value={gender}
+              value={formState.gender}
               name={"gender"}
               id={"female"}
-              onChange={(e) => setGender("Female")}
+              onChange={(e) => setFormState(prevFormState => {
+                return {
+                  ...prevFormState, gender: "Female"
+                }
+              })}
             />{" "}
             <Label text={"Female"} htmlFor={"female"}/>
             <Input
               type="radio"
-              value={gender}
+              value={formState.gender}
               name={"gender"}
               id={"other"}
-              onChange={(e) => setGender("Others")}
+              onChange={(e) => setFormState(prevFormState => {
+                return {
+                  ...prevFormState, gender: "Others"
+                }
+              })}
             />{" "}
             <Label text={"other"} htmlFor={"other"}/>
           </div>
@@ -104,8 +140,10 @@ export default function UserRegistration(props) {
           <div className={styles.formElement}>
             <Label text={"Address:"} htmlFor={"address"}/>
             <Input
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
+              value={formState.address}
+              onChange={(e) => setFormState(prevFormState => {
+                return {...prevFormState, address: e.target.value}
+              })}
               type={"text"}
               size={"lg"}
               id={"address"}
@@ -115,8 +153,13 @@ export default function UserRegistration(props) {
           <div className={styles.formElement}>
             <Label text={"Phone:"} htmlFor={"phone"}/>
             <Input
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              value={formState.phone}
+              onChange={(e) => setFormState(prevFormState => {
+                return {
+                  ...prevFormState,
+                  phone: e.target.value
+                }
+              })}
               type={"text"}
               size={"lg"}
               id={"phone"}
@@ -126,8 +169,12 @@ export default function UserRegistration(props) {
           <div className={styles.formElement}>
             <Label text={"Password:"} htmlFor={"password"}/>
             <Input
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={formState.password}
+              onChange={(e) => setFormState(prevFormState => {
+                return {
+                  ...prevFormState, password: e.target.value
+                }
+              })}
               type={"password"}
               size={"lg"}
               id={"password"}
@@ -137,8 +184,12 @@ export default function UserRegistration(props) {
           <div className={styles.formElement}>
             <Label text={"Confirm Password:"} htmlFor={"confirmPassword"}/>
             <Input
-              value={matchPassword}
-              onChange={(e) => setMatchPassword(e.target.value)}
+              value={formState.confirmPassword}
+              onChange={(e) => setFormState(prevFormState => {
+                return {
+                  ...prevFormState, confirmPassword: e.target.value
+                }
+              })}
               type={"password"}
               size={"lg"}
               id={"confirmPassword"}
@@ -149,13 +200,11 @@ export default function UserRegistration(props) {
               text={"Join"}
               type={"submit"}
               btnStyle={"primary"}
-              onClick={() => console.log(firstName + " " + lastName)}
             />
             <Button
               text={"Cancel"}
               type={"button"}
               btnStyle={"secondaryOutline"}
-              onClick={() => console.log(firstName + " " + lastName, gender)}
             />
           </div>
         </form>
