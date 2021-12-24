@@ -6,6 +6,10 @@
   align-items: center;
 }
 
+.phone {
+  font-variant-numeric: oldstyle-nums;
+}
+
 .h2 {
   text-align: center;
   font-size: 3em;

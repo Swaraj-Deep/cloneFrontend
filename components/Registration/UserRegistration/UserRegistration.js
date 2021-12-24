@@ -5,15 +5,6 @@ import Label from "../../../shared-components/Label";
 import styles from "./UserRegistration.module.css";
 
 export default function UserRegistration(props) {
-  // const [firstName, setFirstName] = useState("");
-  // const [lastName, setLastName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [dob, setDob] = useState("");
-  // const [gender, setGender] = useState("");
-  // const [address, setAddress] = useState("");
-  // const [phone, setPhone] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [matchPassword, setMatchPassword] = useState("");
   const [formState, setFormState] = useState({
     firstName: '',
     lastName: '',
@@ -25,191 +16,129 @@ export default function UserRegistration(props) {
     password: '',
     confirmPassword: ''
   });
+  const obj = {
+    firstName: {
+      labelText: 'First Name',
+      labelFor: 'firstName',
+      formState,
+      inputValue: formState.firstName,
+      inputOnChange: setFormState,
+      size: "md",
+      type: "text"
+    }, lastName: {
+      labelText: 'Last Name',
+      labelFor: 'lastName',
+      inputValue: formState.lastName,
+      inputOnChange: setFormState,
+      size: "md",
+      type: "text"
+    }, email: {
+      labelText: 'Email',
+      labelFor: 'email',
+      inputValue: formState.email,
+      inputOnChange: setFormState,
+      size: "md",
+      type: "email"
+    }, dob: {
+      labelText: 'Date of Birth',
+      labelFor: 'dob',
+      inputValue: formState.dob,
+      inputOnChange: setFormState,
+      size: "md",
+      type: "date"
+    }, gender: {
+      labelText: 'Gender:', type: "radio", buttons: [{
+        labelFor: 'male', labelText: 'Male', inputValue: formState.gender, inputOnChange: setFormState
+      }, {
+        labelFor: 'female', labelText: 'Female', inputValue: formState.gender, inputOnChange: setFormState
+      }, {
+        labelFor: 'others', labelText: 'Others', inputValue: formState.gender, inputOnChange: setFormState
+      }]
+    }, address: {
+      labelText: 'Address',
+      labelFor: 'address',
+      inputValue: formState.address,
+      inputOnChange: setFormState,
+      size: "md",
+      type: "text"
+    }, phone: {
+      labelText: 'Phone',
+      labelFor: 'phone',
+      inputValue: formState.phone,
+      inputOnChange: setFormState,
+      size: "md",
+      type: "text"
+    }, password: {
+      labelText: 'Password',
+      labelFor: 'password',
+      inputValue: formState.password,
+      inputOnChange: setFormState,
+      size: "md",
+      type: "password"
+    }, confirmPassword: {
+      labelText: 'Confirm Password',
+      labelFor: 'confirmPassword',
+      inputValue: formState.confirmPassword,
+      inputOnChange: setFormState,
+      size: "md",
+      type: "password"
+    }
+  };
 
   function handleSubmit(e) {
     e.preventDefault();
     console.log(formState);
   }
 
-  return (
-    <div className={styles.formpage}>
-      <div className={styles.formbox}>
-        <div>
-          <h2 className={styles.h2}>Register</h2>
-        </div>
-        <form onSubmit={handleSubmit}>
-          <div style={{display: "flex"}}>
-            <div className={styles.formElement}>
-              <Label text={"First Name:"} htmlFor={"firstName"}/>
-              <Input
-                value={formState.firstName}
-                onChange={(e) => setFormState(prevFormState => {
-                  return {
-                    ...prevFormState, firstName: e.target.value
-                  }
-                })}
-                type={"text"}
-                id={'firstName'}
-                size={"md"}
-              />
-            </div>
+  function handleReset(e) {
+    e.preventDefault();
+    setFormState({
+      firstName: '',
+      lastName: '',
+      email: '',
+      dob: '',
+      gender: '',
+      address: '',
+      phone: '',
+      password: '',
+      confirmPassword: ''
+    });
+    console.log(formState);
+  }
 
-            <div className={styles.formElement}>
-              <Label text={"Last Name:"} htmlFor={"lastName"}/>
-              <Input
-                value={formState.lastName}
-                onChange={(e) => setFormState(prevFromState => {
-                  return {
-                    ...prevFromState, lastName: e.target.value
-                  }
-                })}
-                type={"text"}
-                size={"md"}
-                id={'lastName'}
-              />
-            </div>
-          </div>
-
-          <div className={styles.formElement}>
-            <Label text={"Email:"} htmlFor={"email"}/>
-            <Input
-              value={formState.email}
-              onChange={(e) => setFormState(prevFormState => {
-                return {
-                  ...prevFormState, email: e.target.value
-                }
-              })}
-              type={"email"}
-              size={"lg"}
-              id={"email"}
-            />
-          </div>
-
-          <div className={styles.formElement}>
-            <Label text={"D.O.B:"} htmlFor={"dob"}/>
-            <Input
-              value={formState.dob}
-              onChange={(e) => setFormState(prevFormState => {
-                return {...prevFormState, dob: e.target.value}
-              })}
-              type={"date"}
-              size={"lg"}
-              id={"dob"}
-            />
-          </div>
-          <div style={{padding: "0.3em"}}>
-            <Label text={"Gender:"}/>
-            <Input
-              type="radio"
-              value={formState.gender}
-              name={'gender'}
-              id={"male"}
-              onChange={(e) => setFormState(prevFormState => {
-                return {
-                  ...prevFormState, gender: "Male"
-                }
-              })}
-            />{" "}
-            <Label text={"Male"} htmlFor={'male'}/>
-            <Input
-              type="radio"
-              value={formState.gender}
-              name={"gender"}
-              id={"female"}
-              onChange={(e) => setFormState(prevFormState => {
-                return {
-                  ...prevFormState, gender: "Female"
-                }
-              })}
-            />{" "}
-            <Label text={"Female"} htmlFor={"female"}/>
-            <Input
-              type="radio"
-              value={formState.gender}
-              name={"gender"}
-              id={"other"}
-              onChange={(e) => setFormState(prevFormState => {
-                return {
-                  ...prevFormState, gender: "Others"
-                }
-              })}
-            />{" "}
-            <Label text={"other"} htmlFor={"other"}/>
-          </div>
-
-          <div className={styles.formElement}>
-            <Label text={"Address:"} htmlFor={"address"}/>
-            <Input
-              value={formState.address}
-              onChange={(e) => setFormState(prevFormState => {
-                return {...prevFormState, address: e.target.value}
-              })}
-              type={"text"}
-              size={"lg"}
-              id={"address"}
-            />
-          </div>
-
-          <div className={styles.formElement}>
-            <Label text={"Phone:"} htmlFor={"phone"}/>
-            <Input
-              value={formState.phone}
-              onChange={(e) => setFormState(prevFormState => {
-                return {
-                  ...prevFormState,
-                  phone: e.target.value
-                }
-              })}
-              type={"text"}
-              size={"lg"}
-              id={"phone"}
-            />
-          </div>
-
-          <div className={styles.formElement}>
-            <Label text={"Password:"} htmlFor={"password"}/>
-            <Input
-              value={formState.password}
-              onChange={(e) => setFormState(prevFormState => {
-                return {
-                  ...prevFormState, password: e.target.value
-                }
-              })}
-              type={"password"}
-              size={"lg"}
-              id={"password"}
-            />
-          </div>
-
-          <div className={styles.formElement}>
-            <Label text={"Confirm Password:"} htmlFor={"confirmPassword"}/>
-            <Input
-              value={formState.confirmPassword}
-              onChange={(e) => setFormState(prevFormState => {
-                return {
-                  ...prevFormState, confirmPassword: e.target.value
-                }
-              })}
-              type={"password"}
-              size={"lg"}
-              id={"confirmPassword"}
-            />
-          </div>
-          <div className={styles.formElement}>
-            <Button
-              text={"Join"}
-              type={"submit"}
-              btnStyle={"primary"}
-            />
-            <Button
-              text={"Cancel"}
-              type={"button"}
-              btnStyle={"secondaryOutline"}
-            />
-          </div>
-        </form>
-
-      </div>
-    </div>
-  );
+  return (<>
+    <form onSubmit={handleSubmit} onReset={handleReset}>
+      {Object.keys(obj).map((key, i) => <span key={i}>{<div className={styles.formElement}>
+        {obj[key].type === 'radio' ? <>
+          <Label text={obj[key].labelText}/>
+          {obj[key].buttons.map(button => (<span key={button.labelFor}>
+                <Input
+                  type={obj[key].type}
+                  value={button.inputValue}
+                  name={key}
+                  id={button.labelFor}
+                  onChange={(e) => button.inputOnChange(prevState => {
+                    console.log(e.target)
+                    return {...prevState, [key]: e.target.value}
+                  })}
+                />
+                <Label text={button.labelText} htmlFor={button.labelFor}/>
+              </span>))}
+        </> : <>
+          <Label text={obj[key].labelText} htmlFor={obj[key].labelFor}/>
+          <Input
+            value={obj[key].inputValue}
+            onChange={(e) => obj[key].inputOnChange(prevState => {
+              return {...prevState, [key]: e.target.value}
+            })}
+            id={obj[key].labelFor}
+            type={obj[key].type}
+            size={obj[key].size}
+          />
+        </>}
+      </div>}</span>)}
+      <Button btnStyle={'primary'} type={'submit'} text={"Join"}/>
+      <Button btnStyle={'secondaryOutline'} type={'reset'} text={"Cancel"}/>
+    </form>
+  </>);
 }
