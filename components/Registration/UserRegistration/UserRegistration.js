@@ -42,7 +42,7 @@ export default function UserRegistration(props) {
         size: "md",
         type: "date"
       }, gender: {
-        labelText: 'Gender:', type: "radio", buttons: [{
+        id: 'inpGdr', labelText: 'Gender:', type: "radio", buttons: [{
           id: 'inpMl', labelFor: 'male', labelText: 'Male', inputValue: 'm', inputOnChange: setFormState
         }, {
           id: 'inpFml', labelFor: 'female', labelText: 'Female', inputValue: 'f', inputOnChange: setFormState

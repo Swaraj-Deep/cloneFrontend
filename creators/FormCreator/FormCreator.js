@@ -12,7 +12,7 @@ export default function FormCreator({onSubmit, onReset, config, formState}) {
     e.preventDefault();
     onReset(e);
   }}>
-    {Object.keys(layout).map((key) => (<div key={layout.id} className={styles.formElement}>
+    {Object.keys(layout).map((key) => (<div key={layout[key].id} className={styles.formElement}>
       {layout[key].type === 'radio' ? <>
         <Label text={layout[key].labelText}/>
         {layout[key].buttons.map(button => (<span key={button.id}>
