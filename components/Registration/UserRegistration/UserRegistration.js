@@ -1,144 +1,107 @@
-import Button from "../../../shared-components/Button";
-import Input from "../../../shared-components/Input";
 import {useState} from "react";
-import Label from "../../../shared-components/Label";
-import styles from "./UserRegistration.module.css";
+import FormCreator from "../../../creators/FormCreator";
+import {
+  getUserRegistrationInitialState
+} from "../../../states/initialStates/getInitialStates/userRegistrationInitialState";
 
 export default function UserRegistration(props) {
-  const [formState, setFormState] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    dob: '',
-    gender: '',
-    address: '',
-    phone: '',
-    password: '',
-    confirmPassword: ''
-  });
+  const [formState, setFormState] = useState(getUserRegistrationInitialState());
   const obj = {
-    firstName: {
-      labelText: 'First Name',
-      labelFor: 'firstName',
-      formState,
-      inputValue: formState.firstName,
-      inputOnChange: setFormState,
-      size: "md",
-      type: "text"
-    }, lastName: {
-      labelText: 'Last Name',
-      labelFor: 'lastName',
-      inputValue: formState.lastName,
-      inputOnChange: setFormState,
-      size: "md",
-      type: "text"
-    }, email: {
-      labelText: 'Email',
-      labelFor: 'email',
-      inputValue: formState.email,
-      inputOnChange: setFormState,
-      size: "md",
-      type: "email"
-    }, dob: {
-      labelText: 'Date of Birth',
-      labelFor: 'dob',
-      inputValue: formState.dob,
-      inputOnChange: setFormState,
-      size: "md",
-      type: "date"
-    }, gender: {
-      labelText: 'Gender:', type: "radio", buttons: [{
-        labelFor: 'male', labelText: 'Male', inputValue: formState.gender, inputOnChange: setFormState
-      }, {
-        labelFor: 'female', labelText: 'Female', inputValue: formState.gender, inputOnChange: setFormState
-      }, {
-        labelFor: 'others', labelText: 'Others', inputValue: formState.gender, inputOnChange: setFormState
-      }]
-    }, address: {
-      labelText: 'Address',
-      labelFor: 'address',
-      inputValue: formState.address,
-      inputOnChange: setFormState,
-      size: "md",
-      type: "text"
-    }, phone: {
-      labelText: 'Phone',
-      labelFor: 'phone',
-      inputValue: formState.phone,
-      inputOnChange: setFormState,
-      size: "md",
-      type: "text"
-    }, password: {
-      labelText: 'Password',
-      labelFor: 'password',
-      inputValue: formState.password,
-      inputOnChange: setFormState,
-      size: "md",
-      type: "password"
-    }, confirmPassword: {
-      labelText: 'Confirm Password',
-      labelFor: 'confirmPassword',
-      inputValue: formState.confirmPassword,
-      inputOnChange: setFormState,
-      size: "md",
-      type: "password"
-    }
+    layout: {
+      firstName: {
+        id: 'inpFstNm',
+        labelText: 'First Name',
+        labelFor: 'firstName',
+        formState,
+        inputValue: formState.firstName,
+        inputOnChange: setFormState,
+        size: "md",
+        type: "text"
+      }, lastName: {
+        id: 'inpLstNm',
+        labelText: 'Last Name',
+        labelFor: 'lastName',
+        inputValue: formState.lastName,
+        inputOnChange: setFormState,
+        size: "md",
+        type: "text"
+      }, email: {
+        id: 'inpEml',
+        labelText: 'Email',
+        labelFor: 'email',
+        inputValue: formState.email,
+        inputOnChange: setFormState,
+        size: "md",
+        type: "email"
+      }, dob: {
+        id: 'inpDOB',
+        labelText: 'Date of Birth',
+        labelFor: 'dob',
+        inputValue: formState.dob,
+        inputOnChange: setFormState,
+        size: "md",
+        type: "date"
+      }, gender: {
+        labelText: 'Gender:', type: "radio", buttons: [{
+          id: 'inpMl', labelFor: 'male', labelText: 'Male', inputValue: 'm', inputOnChange: setFormState
+        }, {
+          id: 'inpFml', labelFor: 'female', labelText: 'Female', inputValue: 'f', inputOnChange: setFormState
+        }, {
+          id: 'inpOth', labelFor: 'others', labelText: 'Others', inputValue: 'o', inputOnChange: setFormState
+        }]
+      }, address: {
+        id: 'inpAdd',
+        labelText: 'Address',
+        labelFor: 'address',
+        inputValue: formState.address,
+        inputOnChange: setFormState,
+        size: "md",
+        type: "text"
+      }, phone: {
+        id: 'inpPhn',
+        labelText: 'Phone',
+        labelFor: 'phone',
+        inputValue: formState.phone,
+        inputOnChange: setFormState,
+        size: "md",
+        type: "text"
+      }, password: {
+        id: 'inpPass',
+        labelText: 'Password',
+        labelFor: 'password',
+        inputValue: formState.password,
+        inputOnChange: setFormState,
+        size: "md",
+        type: "password"
+      }, confirmPassword: {
+        id: 'inpCnfPass',
+        labelText: 'Confirm Password',
+        labelFor: 'confirmPassword',
+        inputValue: formState.confirmPassword,
+        inputOnChange: setFormState,
+        size: "md",
+        type: "password"
+      }
+    }, buttons: [{
+      id: 'btn1',
+      btnText: "Join",
+      btnStyle: "primary",
+      btnType: "submit",
+      disabled: false,
+      onClick: () => console.log('Submit')
+    }, {
+      id: 'btn2',
+      btnText: "Cancel",
+      btnStyle: "secondaryOutline",
+      btnType: "reset",
+      disabled: false,
+      onClick: () => console.log('Reset')
+    }]
   };
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(formState);
-  }
-
-  function handleReset(e) {
-    e.preventDefault();
-    setFormState({
-      firstName: '',
-      lastName: '',
-      email: '',
-      dob: '',
-      gender: '',
-      address: '',
-      phone: '',
-      password: '',
-      confirmPassword: ''
-    });
-    console.log(formState);
-  }
 
   return (<>
-    <form onSubmit={handleSubmit} onReset={handleReset}>
-      {Object.keys(obj).map((key, i) => <span key={i}>{<div className={styles.formElement}>
-        {obj[key].type === 'radio' ? <>
-          <Label text={obj[key].labelText}/>
-          {obj[key].buttons.map(button => (<span key={button.labelFor}>
-                <Input
-                  type={obj[key].type}
-                  value={button.inputValue}
-                  name={key}
-                  id={button.labelFor}
-                  onChange={(e) => button.inputOnChange(prevState => {
-                    console.log(e.target)
-                    return {...prevState, [key]: e.target.value}
-                  })}
-                />
-                <Label text={button.labelText} htmlFor={button.labelFor}/>
-              </span>))}
-        </> : <>
-          <Label text={obj[key].labelText} htmlFor={obj[key].labelFor}/>
-          <Input
-            value={obj[key].inputValue}
-            onChange={(e) => obj[key].inputOnChange(prevState => {
-              return {...prevState, [key]: e.target.value}
-            })}
-            id={obj[key].labelFor}
-            type={obj[key].type}
-            size={obj[key].size}
-          />
-        </>}
-      </div>}</span>)}
-      <Button btnStyle={'primary'} type={'submit'} text={"Join"}/>
-      <Button btnStyle={'secondaryOutline'} type={'reset'} text={"Cancel"}/>
-    </form>
+    <FormCreator onReset={() => console.log("Reset")} onSubmit={() => console.log("Submit")} config={obj}
+                 formState={formState}/>
   </>);
 }
