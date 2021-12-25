@@ -1,6 +1,6 @@
 import styles from './Button.module.css';
 
-export default function Button({btnStyle, text, onClick, type, disabled}) {
+export default function Button({btnStyle, text, onClick, type, disabled, size}) {
   function getButtonStyle(btnStyle) {
     switch (btnStyle) {
       case 'primary':
@@ -17,8 +17,9 @@ export default function Button({btnStyle, text, onClick, type, disabled}) {
         return styles.buttonDangerOutline;
     }
   }
+
   const buttonStyle = getButtonStyle(btnStyle);
   return <button
-    className={`${styles.button} ${buttonStyle}`}
+    className={`${size === 'sm' ? styles.buttonSm : size === 'md' ? styles.buttonMd : size === 'lg' ? styles.buttonLg : ''} ${styles.button} ${buttonStyle}`}
     onClick={onClick} type={type} disabled={disabled}> {text} </button>
 }

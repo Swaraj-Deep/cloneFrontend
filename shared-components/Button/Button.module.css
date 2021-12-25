@@ -3,9 +3,24 @@
   border-radius: 0.5em;
   outline: none;
   width: 6em;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.1em;
   cursor: pointer;
-  font-size: 0.9em;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.5;
+  font-family: monospace;
+}
+
+.buttonSm {
+  width: 5em;
+}
+
+.buttonMd {
+  width: 10em;
+}
+
+.buttonLg {
+  width: 15em;
 }
 
 .button:hover {

@@ -1,3 +1,4 @@
+import styles from './FormCreator.module.css';
 import Label from "../../shared-components/Label";
 import Input from "../../shared-components/Input";
 import Button from "../../shared-components/Button";
@@ -10,8 +11,9 @@ export default function FormCreator({onSubmit, onReset, config, formState}) {
   }} onReset={(e) => {
     e.preventDefault();
     onReset(e);
-  }} noValidate={true} autoComplete={"new-password"}>
-    {Object.keys(layout).map((key) => (<div key={layout[key].id}>
+  }} noValidate={true} autoComplete={"new-password"} className={`d-flex flex-row flex-wrap ${styles.gap} ${styles.padding}`}>
+    {Object.keys(layout).map((key) => (<div key={layout[key].id}
+                                            className={`${layout[key].displayLabel ? 'd-flex justify-contents-space-between' : ''} ${styles[layout[key].className]}`}>
       {layout[key].type === 'radio' ? <>
         {layout[key].displayLabel && <Label text={layout[key].labelText}/>}
         {layout[key].buttons.map(button => (<span key={button.id}>
@@ -39,9 +41,12 @@ export default function FormCreator({onSubmit, onReset, config, formState}) {
         />
       </>}
     </div>))}
-    {buttons.map(button => (
-      <Button key={button.id} text={button.btnText} type={button.btnType} btnStyle={button.btnStyle}
-              onClick={button.onClick}
-              disabled={button.disabled}/>))}
+    <div className={'d-flex justify-contents-space-between width-100'}>
+      {buttons.map(button => (
+        <Button key={button.id} text={button.btnText} type={button.btnType} btnStyle={button.btnStyle}
+                onClick={button.onClick}
+                disabled={button.disabled}
+                size={button.size}/>))}
+    </div>
   </form>)
 }

@@ -1,3 +1,8 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 ::placeholder {
   color: red;
   opacity: 1;
@@ -9,4 +14,57 @@
 
 ::-ms-input-placeholder {
   color: red;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-column-reverse {
+  flex-direction: column-reverse;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+
+.d-block {
+  display: block;
+}
+
+.d-none {
+  display: none;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-contents-center {
+  justify-content: center;
+}
+
+.justify-contents-space-around {
+  justify-content: space-around;
+}
+
+.justify-contents-space-between {
+  justify-content: space-between;
+}
+
+.width-100 {
+  width: 100%;
 }

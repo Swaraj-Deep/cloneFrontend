@@ -3,6 +3,7 @@
   border-radius: 0.5em;
   padding: 0.5em;
   outline: none;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 .input:focus {
@@ -17,9 +18,9 @@
 }
 
 .inputMedium {
-  width: 11.5em;
+  width: 9.7em;
 }
 
 .inputLarge {
-  width: 25em;
+  width: 21.2em;
 }

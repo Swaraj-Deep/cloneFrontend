@@ -35,10 +35,11 @@ export default function UserRegistration(props) {
         labelFor: 'email',
         inputValue: formState.email,
         inputOnChange: setFormState,
-        size: "md",
+        size: "lg",
         type: "email",
         placeholder: "user@example.com",
-        required: true
+        required: true,
+        className: 'flex-basis-100'
       }, dob: {
         id: 'inpDOB',
         labelText: 'Date of Birth',
@@ -48,9 +49,10 @@ export default function UserRegistration(props) {
         size: "md",
         type: "date",
         required: true,
-        displayLabel: true
+        displayLabel: true,
+        className: 'flex-basis-100'
       }, gender: {
-        id: 'inpGdr', labelText: 'Gender:', type: "radio", displayLabel: true, buttons: [{
+        id: 'inpGdr', labelText: 'Gender:', type: "radio", displayLabel: true, className: 'flex-basis-100', buttons: [{
           id: 'inpMl', labelFor: 'male', labelText: 'Male', inputValue: 'm', inputOnChange: setFormState
         }, {
           id: 'inpFml', labelFor: 'female', labelText: 'Female', inputValue: 'f', inputOnChange: setFormState
@@ -84,7 +86,7 @@ export default function UserRegistration(props) {
         labelFor: 'password',
         inputValue: formState.password,
         inputOnChange: setFormState,
-        size: "md",
+        size: "lg",
         type: "password",
         placeholder: "Type a password",
         required: true
@@ -94,25 +96,28 @@ export default function UserRegistration(props) {
         labelFor: 'confirmPassword',
         inputValue: formState.confirmPassword,
         inputOnChange: setFormState,
-        size: "md",
+        size: "lg",
         type: "password",
         placeholder: "Confirm password",
-        required: true
+        required: true,
+        className: 'flex-basis-100'
       }
     }, buttons: [{
-      id: 'btn1',
-      btnText: "Join",
-      btnStyle: "primary",
-      btnType: "submit",
-      disabled: false,
-      onClick: () => console.log('Submit')
-    }, {
       id: 'btn2',
       btnText: "Cancel",
       btnStyle: "secondaryOutline",
       btnType: "reset",
       disabled: false,
-      onClick: () => console.log('Reset')
+      onClick: () => console.log('Reset'),
+      size: "md"
+    }, {
+      id: 'btn1',
+      btnText: "Join",
+      btnStyle: "primary",
+      btnType: "submit",
+      disabled: false,
+      onClick: () => console.log('Submit'),
+      size: "md"
     }]
   };
 
