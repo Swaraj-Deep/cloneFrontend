@@ -1,4 +1,3 @@
-import styles from "../../components/Registration/UserRegistration/UserRegistration.module.css";
 import Label from "../../shared-components/Label";
 import Input from "../../shared-components/Input";
 import Button from "../../shared-components/Button";
@@ -11,10 +10,10 @@ export default function FormCreator({onSubmit, onReset, config, formState}) {
   }} onReset={(e) => {
     e.preventDefault();
     onReset(e);
-  }}>
-    {Object.keys(layout).map((key) => (<div key={layout[key].id} className={styles.formElement}>
+  }} noValidate={true} autoComplete={"new-password"}>
+    {Object.keys(layout).map((key) => (<div key={layout[key].id}>
       {layout[key].type === 'radio' ? <>
-        <Label text={layout[key].labelText}/>
+        {layout[key].displayLabel && <Label text={layout[key].labelText}/>}
         {layout[key].buttons.map(button => (<span key={button.id}>
                 <Input
                   checked={button.inputValue === formState[key]}
@@ -27,7 +26,7 @@ export default function FormCreator({onSubmit, onReset, config, formState}) {
                 <Label text={button.labelText} htmlFor={button.labelFor}/>
               </span>))}
       </> : <>
-        <Label text={layout[key].labelText} htmlFor={layout[key].labelFor}/>
+        {layout[key].displayLabel && <Label text={layout[key].labelText} htmlFor={layout[key].labelFor}/>}
         <Input
           value={layout[key].inputValue}
           onChange={(e) => layout[key].inputOnChange(prevState => ({...prevState, [key]: e.target.value}))}

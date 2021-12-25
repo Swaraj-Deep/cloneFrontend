@@ -17,7 +17,8 @@ export default function UserRegistration(props) {
         inputOnChange: setFormState,
         size: "md",
         type: "text",
-        placeholder: "First Name"
+        placeholder: "First Name",
+        required: true
       }, lastName: {
         id: 'inpLstNm',
         labelText: 'Last Name',
@@ -26,7 +27,8 @@ export default function UserRegistration(props) {
         inputOnChange: setFormState,
         size: "md",
         type: "text",
-        placeholder: "Second Name"
+        placeholder: "Second Name",
+        required: true
       }, email: {
         id: 'inpEml',
         labelText: 'Email',
@@ -35,7 +37,8 @@ export default function UserRegistration(props) {
         inputOnChange: setFormState,
         size: "md",
         type: "email",
-        placeholder: "user@example.com"
+        placeholder: "user@example.com",
+        required: true
       }, dob: {
         id: 'inpDOB',
         labelText: 'Date of Birth',
@@ -44,8 +47,10 @@ export default function UserRegistration(props) {
         inputOnChange: setFormState,
         size: "md",
         type: "date",
+        required: true,
+        displayLabel: true
       }, gender: {
-        id: 'inpGdr', labelText: 'Gender:', type: "radio", buttons: [{
+        id: 'inpGdr', labelText: 'Gender:', type: "radio", displayLabel: true, buttons: [{
           id: 'inpMl', labelFor: 'male', labelText: 'Male', inputValue: 'm', inputOnChange: setFormState
         }, {
           id: 'inpFml', labelFor: 'female', labelText: 'Female', inputValue: 'f', inputOnChange: setFormState
@@ -60,7 +65,8 @@ export default function UserRegistration(props) {
         inputOnChange: setFormState,
         size: "md",
         type: "text",
-        placeholder: "Your Country"
+        placeholder: "Your Country",
+        required: true
       }, phone: {
         id: 'inpPhn',
         labelText: 'Phone',
@@ -80,7 +86,8 @@ export default function UserRegistration(props) {
         inputOnChange: setFormState,
         size: "md",
         type: "password",
-        placeholder: "Type a password"
+        placeholder: "Type a password",
+        required: true
       }, confirmPassword: {
         id: 'inpCnfPass',
         labelText: 'Confirm Password',
@@ -89,7 +96,8 @@ export default function UserRegistration(props) {
         inputOnChange: setFormState,
         size: "md",
         type: "password",
-        placeholder: "Confirm password"
+        placeholder: "Confirm password",
+        required: true
       }
     }, buttons: [{
       id: 'btn1',
