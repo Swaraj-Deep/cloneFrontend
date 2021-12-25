@@ -1,12 +1,15 @@
 import {useState} from "react";
-import FormCreator from "../../../creators/FormCreator";
 import {
   getUserRegistrationInitialState
 } from "../../../states/initialStates/getInitialStates/userRegistrationInitialState";
+import styles from "./UserRegistration.module.css";
+import Label from "../../../shared-components/Label";
+import Input from "../../../shared-components/Input";
+import Button from "../../../shared-components/Button";
 
 export default function UserRegistration(props) {
   const [formState, setFormState] = useState(getUserRegistrationInitialState());
-  const obj = {
+  const {layout, buttons} = {
     layout: {
       firstName: {
         id: 'inpFstNm',
@@ -52,7 +55,7 @@ export default function UserRegistration(props) {
         displayLabel: true,
         className: 'flex-basis-100'
       }, gender: {
-        id: 'inpGdr', labelText: 'Gender:', type: "radio", displayLabel: true, className: 'flex-basis-100', buttons: [{
+        id: 'inpGdr', labelText: 'Gender', type: "radio", displayLabel: true, className: 'flex-basis-100', buttons: [{
           id: 'inpMl', labelFor: 'male', labelText: 'Male', inputValue: 'm', inputOnChange: setFormState
         }, {
           id: 'inpFml', labelFor: 'female', labelText: 'Female', inputValue: 'f', inputOnChange: setFormState
@@ -120,10 +123,54 @@ export default function UserRegistration(props) {
       size: "md"
     }]
   };
+  const onSubmit = (e) => console.log(e);
+  const onReset = (e) => console.log(e);
 
 
-  return (<>
-    <FormCreator onReset={() => console.log("Reset")} onSubmit={() => console.log("Submit")} config={obj}
-                 formState={formState}/>
-  </>);
+  return (<form onSubmit={(e) => {
+    e.preventDefault();
+    onSubmit(e);
+  }} onReset={(e) => {
+    e.preventDefault();
+    onReset(e);
+  }} noValidate={true} autoComplete={"new-password"}
+                className={`d-flex flex-row flex-wrap align-items-center ${styles.gap} ${styles.padding}`}>
+    {Object.keys(layout).map((key) => (<div key={layout[key].id}
+                                            className={`${layout[key].displayLabel ? 'd-flex justify-contents-space-between justify-contents-center align-items-center' : ''} ${styles[layout[key].className]}`}>
+      {layout[key].type === 'radio' ? <>
+        {layout[key].displayLabel && <Label text={layout[key].labelText}/>}
+        {layout[key].buttons.map(button => (<span key={button.id} className={`border ${styles.paddingSm}
+         ${button.inputValue === formState[key] ? styles.borderActive : ''} d-flex align-items-center`}>
+                <Label className={`${styles.paddingMdRight}`} text={button.labelText} htmlFor={button.labelFor}/>
+                <Input
+                  checked={button.inputValue === formState[key]}
+                  type={layout[key].type}
+                  value={button.inputValue}
+                  name={key}
+                  id={button.labelFor}
+                  onChange={(e) => button.inputOnChange(prevState => ({...prevState, [key]: e.target.value}))}
+                />
+              </span>))}
+      </> : <>
+        {layout[key].displayLabel && <Label text={layout[key].labelText} htmlFor={layout[key].labelFor}/>}
+        <Input
+          value={layout[key].inputValue}
+          onChange={(e) => layout[key].inputOnChange(prevState => ({...prevState, [key]: e.target.value}))}
+          id={layout[key].labelFor}
+          type={layout[key].type}
+          size={layout[key].size}
+          pattern={layout[key].pattern}
+          required={layout[key].required}
+          placeholder={layout[key].placeholder}
+        />
+      </>}
+    </div>))}
+    <div className={'d-flex justify-contents-space-between width-100'}>
+      {buttons.map(button => (
+        <Button key={button.id} text={button.btnText} type={button.btnType} btnStyle={button.btnStyle}
+                onClick={button.onClick}
+                disabled={button.disabled}
+                size={button.size}/>))}
+    </div>
+  </form>);
 }
