@@ -134,7 +134,7 @@ export default function UserRegistration(props) {
     e.preventDefault();
     onReset(e);
   }} noValidate={true} autoComplete={"new-password"}
-                className={`d-flex flex-row flex-wrap align-items-center ${styles.gap} ${styles.padding}`}>
+                className={`d-flex flex-row flex-wrap align-items-center card ${styles.formBackground} ${styles.formWidth} ${styles.gap} ${styles.padding}`}>
     {Object.keys(layout).map((key) => (<div key={layout[key].id}
                                             className={`${layout[key].displayLabel ? 'd-flex justify-contents-space-between justify-contents-center align-items-center' : ''} ${styles[layout[key].className]}`}>
       {layout[key].type === 'radio' ? <>

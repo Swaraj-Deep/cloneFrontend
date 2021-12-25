@@ -21,3 +21,11 @@
 .borderActive {
   border-color: dodgerblue;
 }
+
+.formWidth {
+  width: 300px
+}
+
+.formBackground {
+  background: #fefefe;
+}
