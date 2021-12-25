@@ -5,7 +5,7 @@ export function getUserRegistrationInitialState() {
     email: '',
     dob: '',
     gender: '',
-    address: '',
+    country: '',
     phone: '',
     password: '',
     confirmPassword: ''

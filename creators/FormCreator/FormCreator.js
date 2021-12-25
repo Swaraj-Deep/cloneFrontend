@@ -34,6 +34,9 @@ export default function FormCreator({onSubmit, onReset, config, formState}) {
           id={layout[key].labelFor}
           type={layout[key].type}
           size={layout[key].size}
+          pattern={layout[key].pattern}
+          required={layout[key].required}
+          placeholder={layout[key].placeholder}
         />
       </>}
     </div>))}
