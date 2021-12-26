@@ -1,9 +1,23 @@
 import styles from './Input.module.css';
 
-export default function Input({size, type, value, onChange, onClick, id, name, checked, pattern, placeholder, required, className}) {
+export default function Input({
+                                type,
+                                value,
+                                onChange,
+                                onClick,
+                                id,
+                                name,
+                                checked,
+                                pattern,
+                                placeholder,
+                                required,
+                                className,
+                                minVal,
+                                maxVal
+                              }) {
   return <>
     <input
-      className={`${className} ${styles.input} ${size === 'sm' ? styles.inputSmall : size === 'md' ? styles.inputMedium : size === 'lg' ? styles.inputLarge : styles.input}`}
+      className={`${styles.input} ${className}`}
       type={type}
       value={value}
       onChange={onChange}
@@ -14,6 +28,8 @@ export default function Input({size, type, value, onChange, onClick, id, name, c
       pattern={pattern}
       placeholder={placeholder}
       required={required}
+      min={minVal}
+      max={maxVal}
     />
   </>
 }

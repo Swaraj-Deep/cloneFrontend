@@ -2,7 +2,7 @@
   gap: 0.5em;
 }
 
-.flex-basis-100 {
+.flexBasis100 {
   flex-basis: 100%;
 }
 
@@ -28,4 +28,16 @@
 
 .formBackground {
   background: #fefefe;
+}
+
+.sizeMd {
+  width: 9.7em;
+}
+
+.sizeMdDOB {
+   width: 13.7em;
+ }
+
+.sizeLg {
+  width: 21.3em;
 }

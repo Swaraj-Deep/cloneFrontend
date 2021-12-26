@@ -4,16 +4,19 @@
 }
 
 ::placeholder {
-  color: red;
+  color: darkgray;
+  font-size: medium;
   opacity: 1;
 }
 
 :-ms-input-placeholder {
-  color: red;
+  color: darkgray;
+  font-size: medium;
 }
 
 ::-ms-input-placeholder {
-  color: red;
+  color: darkgray;
+  font-size: medium;
 }
 
 .d-flex {

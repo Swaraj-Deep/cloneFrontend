@@ -3,13 +3,11 @@ import {
   getUserRegistrationInitialState
 } from "../../../states/initialStates/getInitialStates/userRegistrationInitialState";
 import styles from "./UserRegistration.module.css";
-import Label from "../../../shared-components/Label";
-import Input from "../../../shared-components/Input";
-import Button from "../../../shared-components/Button";
+import FormCreator from "../../../creators/FormCreator";
 
 export default function UserRegistration(props) {
   const [formState, setFormState] = useState(getUserRegistrationInitialState());
-  const {layout, buttons} = {
+  const config = {
     layout: {
       firstName: {
         id: 'inpFstNm',
@@ -18,49 +16,92 @@ export default function UserRegistration(props) {
         formState,
         inputValue: formState.firstName,
         inputOnChange: setFormState,
-        size: "md",
         type: "text",
         placeholder: "First Name",
-        required: true
+        required: true,
+        inputClassName: `${styles.sizeMd}`,
+        labelClassName: ``,
+        className: ``
       }, lastName: {
         id: 'inpLstNm',
         labelText: 'Last Name',
         labelFor: 'lastName',
         inputValue: formState.lastName,
         inputOnChange: setFormState,
-        size: "md",
         type: "text",
         placeholder: "Second Name",
-        required: true
+        required: true,
+        inputClassName: `${styles.sizeMd}`,
+        labelClassName: ``,
+        className: ``
       }, email: {
         id: 'inpEml',
         labelText: 'Email',
         labelFor: 'email',
         inputValue: formState.email,
         inputOnChange: setFormState,
-        size: "lg",
         type: "email",
-        placeholder: "user@example.com",
+        placeholder: "Enter your Email",
         required: true,
-        className: 'flex-basis-100'
+        inputClassName: `${styles.sizeLg}`,
+        labelClassName: ``,
+        className: ``
       }, dob: {
         id: 'inpDOB',
-        labelText: 'Date of Birth',
+        labelText: 'Birth Date',
         labelFor: 'dob',
         inputValue: formState.dob,
         inputOnChange: setFormState,
-        size: "md",
         type: "date",
+        maxVal: (function () {
+          const now = new Date();
+          return now.toISOString().substring(0, 10);
+        })(),
         required: true,
         displayLabel: true,
-        className: 'flex-basis-100'
+        inputClassName: `${styles.sizeMdDOB}`,
+        labelClassName: ``,
+        className: `${styles.flexBasis100} d-flex align-items-center justify-contents-space-between`
       }, gender: {
-        id: 'inpGdr', labelText: 'Gender', type: "radio", displayLabel: true, className: 'flex-basis-100', buttons: [{
-          id: 'inpMl', labelFor: 'male', labelText: 'Male', inputValue: 'm', inputOnChange: setFormState
+        id: 'inpGdr',
+        labelText: 'Gender',
+        type: "radio",
+        displayLabel: false,
+        className: `${styles.flexBasis100} d-flex align-items-center justify-contents-space-between`,
+        labelClassName: '',
+        buttons: [{
+          id: 'inpMl',
+          labelFor: 'male',
+          labelText: 'Male',
+          inputValue: 'm',
+          inputOnChange: setFormState,
+          inputClassName: ``,
+          labelClassName: `${styles.paddingMdRight}`,
+          className: function () {
+            return `border d-flex align-items-center ${styles.paddingSm} ${this.inputValue === formState.gender ? styles.borderActive : ''}`
+          }
         }, {
-          id: 'inpFml', labelFor: 'female', labelText: 'Female', inputValue: 'f', inputOnChange: setFormState
+          id: 'inpFml',
+          labelFor: 'female',
+          labelText: 'Female',
+          inputValue: 'f',
+          inputOnChange: setFormState,
+          inputClassName: ``,
+          labelClassName: `${styles.paddingMdRight}`,
+          className: function () {
+            return `border d-flex align-items-center ${styles.paddingSm} ${this.inputValue === formState.gender ? styles.borderActive : ''}`
+          }
         }, {
-          id: 'inpOth', labelFor: 'others', labelText: 'Others', inputValue: 'o', inputOnChange: setFormState
+          id: 'inpOth',
+          labelFor: 'others',
+          labelText: 'Others',
+          inputValue: 'o',
+          inputOnChange: setFormState,
+          inputClassName: ``,
+          labelClassName: `${styles.paddingMdRight}`,
+          className: function () {
+            return `border d-flex align-items-center ${styles.paddingSm} ${this.inputValue === formState.gender ? styles.borderActive : ''}`
+          }
         }]
       }, country: {
         id: 'inpCty',
@@ -68,109 +109,74 @@ export default function UserRegistration(props) {
         labelFor: 'country',
         inputValue: formState.country,
         inputOnChange: setFormState,
-        size: "md",
         type: "text",
         placeholder: "Your Country",
-        required: true
+        required: true,
+        inputClassName: `${styles.sizeMd}`,
+        labelClassName: ``,
+        className: ``
       }, phone: {
         id: 'inpPhn',
         labelText: 'Phone',
         labelFor: 'phone',
         inputValue: formState.phone,
         inputOnChange: setFormState,
-        size: "md",
         type: "tel",
         pattern: "[0-9]{10}",
         placeholder: "Phone Number",
-        required: true
+        required: true,
+        inputClassName: `${styles.sizeMd}`,
+        labelClassName: ``,
+        className: ``
       }, password: {
         id: 'inpPass',
         labelText: 'Password',
         labelFor: 'password',
         inputValue: formState.password,
         inputOnChange: setFormState,
-        size: "lg",
         type: "password",
-        placeholder: "Type a password",
-        required: true
+        placeholder: "Type your password",
+        required: true,
+        inputClassName: `${styles.sizeLg}`,
+        labelClassName: ``,
+        className: ``
       }, confirmPassword: {
         id: 'inpCnfPass',
         labelText: 'Confirm Password',
         labelFor: 'confirmPassword',
         inputValue: formState.confirmPassword,
         inputOnChange: setFormState,
-        size: "lg",
         type: "password",
         placeholder: "Confirm password",
         required: true,
-        className: 'flex-basis-100'
+        inputClassName: `${styles.sizeLg}`,
+        labelClassName: ``,
+        className: ``
       }
-    }, buttons: [{
-      id: 'btn2',
-      btnText: "Cancel",
-      btnStyle: "secondaryOutline",
-      btnType: "reset",
-      disabled: false,
-      onClick: () => console.log('Reset'),
-      size: "md"
-    }, {
-      id: 'btn1',
-      btnText: "Join",
-      btnStyle: "primary",
-      btnType: "submit",
-      disabled: false,
-      onClick: () => console.log('Submit'),
-      size: "md"
-    }]
+    }, buttons: {
+      className: `${styles.flexBasis100} d-flex align-items-center justify-contents-space-between`, data: [{
+        id: 'btn2',
+        btnText: "Cancel",
+        btnStyle: "secondaryOutline",
+        btnType: "reset",
+        disabled: false,
+        className: `${styles.sizeMd}`,
+        onClick: () => console.log('Reset'),
+      }, {
+        id: 'btn1',
+        btnText: "Join",
+        btnStyle: "primary",
+        btnType: "submit",
+        disabled: false,
+        onClick: () => console.log('Submit'),
+        className: `${styles.sizeMd}`
+      }]
+    }
   };
   const onSubmit = (e) => console.log(e);
-  const onReset = (e) => console.log(e);
+  const onReset = (e) => setFormState(getUserRegistrationInitialState);
 
 
-  return (<form onSubmit={(e) => {
-    e.preventDefault();
-    onSubmit(e);
-  }} onReset={(e) => {
-    e.preventDefault();
-    onReset(e);
-  }} noValidate={true} autoComplete={"new-password"}
-                className={`d-flex flex-row flex-wrap align-items-center card ${styles.formBackground} ${styles.formWidth} ${styles.gap} ${styles.padding}`}>
-    {Object.keys(layout).map((key) => (<div key={layout[key].id}
-                                            className={`${layout[key].displayLabel ? 'd-flex justify-contents-space-between justify-contents-center align-items-center' : ''} ${styles[layout[key].className]}`}>
-      {layout[key].type === 'radio' ? <>
-        {layout[key].displayLabel && <Label text={layout[key].labelText}/>}
-        {layout[key].buttons.map(button => (<span key={button.id} className={`border ${styles.paddingSm}
-         ${button.inputValue === formState[key] ? styles.borderActive : ''} d-flex align-items-center`}>
-                <Label className={`${styles.paddingMdRight}`} text={button.labelText} htmlFor={button.labelFor}/>
-                <Input
-                  checked={button.inputValue === formState[key]}
-                  type={layout[key].type}
-                  value={button.inputValue}
-                  name={key}
-                  id={button.labelFor}
-                  onChange={(e) => button.inputOnChange(prevState => ({...prevState, [key]: e.target.value}))}
-                />
-              </span>))}
-      </> : <>
-        {layout[key].displayLabel && <Label text={layout[key].labelText} htmlFor={layout[key].labelFor}/>}
-        <Input
-          value={layout[key].inputValue}
-          onChange={(e) => layout[key].inputOnChange(prevState => ({...prevState, [key]: e.target.value}))}
-          id={layout[key].labelFor}
-          type={layout[key].type}
-          size={layout[key].size}
-          pattern={layout[key].pattern}
-          required={layout[key].required}
-          placeholder={layout[key].placeholder}
-        />
-      </>}
-    </div>))}
-    <div className={'d-flex justify-contents-space-between width-100'}>
-      {buttons.map(button => (
-        <Button key={button.id} text={button.btnText} type={button.btnType} btnStyle={button.btnStyle}
-                onClick={button.onClick}
-                disabled={button.disabled}
-                size={button.size}/>))}
-    </div>
-  </form>);
+  return <FormCreator onSubmit={onSubmit} onReset={onReset} config={config} formState={formState}
+                      formClassName={`d-flex flex-row flex-wrap align-items-center card ${styles.formBackground} ${styles.formWidth} ${styles.gap} ${styles.padding}`}/>
 }
