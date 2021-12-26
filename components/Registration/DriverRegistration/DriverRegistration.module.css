@@ -1,0 +1,43 @@
+.gap {
+  gap: 0.5em;
+}
+
+.flexBasis100 {
+  flex-basis: 100%;
+}
+
+.padding {
+  padding: 0.66em;
+}
+
+.paddingSm {
+  padding: 0.2em;
+}
+
+.paddingMdRight {
+  padding-right: 0.4em;
+}
+
+.borderActive {
+  border-color: dodgerblue;
+}
+
+.formWidth {
+  width: 300px
+}
+
+.formBackground {
+  background: #fefefe;
+}
+
+.sizeMd {
+  width: 9.7em;
+}
+
+.sizeMdDOB {
+  width: 13.7em;
+}
+
+.sizeLg {
+  width: 21.3em;
+}
