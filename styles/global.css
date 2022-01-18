@@ -12,7 +12,7 @@ body {
   padding: 20px;
 }
 ::placeholder {
-  color: darkgray;
+  color: rgb(20, 8, 8);
   font-size: medium;
   opacity: 1;
 }
