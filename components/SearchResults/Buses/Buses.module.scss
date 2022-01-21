@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,700,900");
+
+.BusCard {
+  border: 0.5px solid rgba(128, 128, 128, 0.342);
+  padding: 10px 0 0;
+}
+
+.BusDetails {
+  display: block;
+  padding-left: 0.6rem;
+}
+
+.BusOption {
+  display: block;
+}
+
+.BusName {
+  display: inline-block;
+  width: 25%;
+}
+
+.BusPickUpTime {
+  display: inline-block;
+  width: 15%;
+}
+
+.BusNameDetail {
+  color: rgb(5, 5, 63);
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.BusTypeDetail,
+.BusPickUpPointDetail,
+.BusDropPointDetail {
+  color: #7e7e8c;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  margin-top: 16px;
+}
+
+.BusDuration {
+  display: inline-block;
+  width: 15%;
+}
+
+.BusDropTime {
+  display: inline-block;
+  width: 15%;
+}
+
+.BusPrice {
+  display: inline-block;
+  width: 10%;
+}
+.BusSeats {
+  display: inline-block;
+  width: 20%;
+}

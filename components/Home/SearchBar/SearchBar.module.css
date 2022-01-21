@@ -1,0 +1,83 @@
+.headerSearchBarMain {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 55px;
+  border-radius: 32px;
+}
+
+.headerSearchBar {
+  background-color: #fff;
+  height: 100%;
+  border-radius: 32px;
+  animation-name: moveInTop;
+  animation-duration: 3s;
+}
+
+.headerSearchBarSection {
+  border-radius: 32px;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 10px;
+  display: inline-block;
+  height: 100%;
+  width: 30%;
+}
+
+.headerSearchBarSection:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.headerSearchBarLabel {
+  font-family: lato;
+  font-size: 15px;
+  font-weight: 550;
+  color: rgb(34, 88, 44);
+  display: block;
+  height: 40%;
+}
+
+.headerSearchBarInput {
+  font-size: medium;
+  border: none;
+  outline: none;
+  height: 60%;
+  background-color: inherit;
+  width: 100%;
+}
+
+.headerSearchBarButton {
+  display: inline;
+  height: 48px;
+  width: 48px;
+  border-radius: 24px;
+  border: none;
+  width: 7.8%;
+  vertical-align: middle;
+  transform: translate(22%, -20%);
+  margin-right: 5px;
+  background-color: rgb(72, 179, 108);
+  cursor: pointer;
+}
+
+.headerSearchBarButton:hover,
+.headerSearchBarButton:active {
+  background-color: rgb(50, 119, 73);
+}
+
+@keyframes moveInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  80% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
