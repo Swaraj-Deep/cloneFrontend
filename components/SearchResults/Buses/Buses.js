@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./Buses.module.scss";
 
 export default function Buses() {
@@ -18,14 +19,25 @@ export default function Buses() {
           <div className={styles.BusDropPointDetail}>Kanpur</div>
         </div>
         <div className={styles.BusPrice}>
-          <div className={styles.BusPriceDetail}>900</div>
+          <div className={styles.BusPriceDetail}>
+            <span className={styles.BusPriceCurrency}>INR </span>900
+          </div>
         </div>
         <div className={styles.BusSeats}>
           <div className={styles.BusSeatsDetail1}>30 Seats Available</div>
           <div className={styles.BusSeatsDetail2}>10 Single</div>
         </div>
       </div>
-      <div className={styles.BusOptions}>View Seats</div>
+      <div className={styles.BusOptions}>
+        <div className={styles.BusOptionsAll} id="BusOptions">
+          <Link href={"/"}>
+            <a>Bus</a>
+          </Link>
+        </div>
+        <div className={styles.BusOptionsViewButton}>
+          <button className={styles.BusOptionsViewSeats}>View Seats</button>
+        </div>
+      </div>
     </div>
   );
 }
