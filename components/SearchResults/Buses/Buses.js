@@ -29,12 +29,10 @@ export default function Buses() {
         </div>
       </div>
       <div className={styles.BusOptions}>
-        <div className={styles.BusOptionsAll} id="BusOptions">
-          <Link href={"/"}>
-            <a>Bus</a>
-          </Link>
-        </div>
         <div className={styles.BusOptionsViewButton}>
+          <Link href={"/"}>
+            <span style={{ textDecoration: "none" }}>Bus</span>
+          </Link>
           <button className={styles.BusOptionsViewSeats}>View Seats</button>
         </div>
       </div>

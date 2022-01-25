@@ -4,12 +4,13 @@
   border: 0.5px solid rgba(128, 128, 128, 0.342);
   // animation: onHover 2s linear infinite;
   // animation-play-state: paused;
-  margin: 1.5rem 0;
+  margin-bottom: 1.5rem;
 }
 
 .BusCard:hover,
 .BusCard:active {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.082);
+  --visibility: visible;
 }
 
 // @keyframes onHover {
@@ -139,6 +140,7 @@
 .BusOptionsAll {
   visibility: var(--visibility);
   text-align: right;
+  text-decoration-line: none;
 }
 
 .BusOptionsViewSeats {
@@ -155,4 +157,8 @@
 
 .BusOptionsViewButton {
   text-align: right;
+}
+
+.BusOptionsLinks {
+  text-decoration-line: none;
 }
