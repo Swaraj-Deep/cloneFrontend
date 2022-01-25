@@ -1,10 +1,24 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,500,700,900");
+
+:root {
+  --visibility: hidden;
+}
+
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
-
+body {
+  font-family: "lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 20px;
+}
 ::placeholder {
-  color: darkgray;
+  color: rgb(20, 8, 8);
   font-size: medium;
   opacity: 1;
 }
@@ -42,7 +56,6 @@
 .flex-wrap {
   flex-wrap: wrap;
 }
-
 
 .d-block {
   display: block;

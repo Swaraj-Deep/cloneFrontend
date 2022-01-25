@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,700,900");
+
+.BusCard {
+  border: 0.5px solid rgba(128, 128, 128, 0.342);
+  // animation: onHover 2s linear infinite;
+  // animation-play-state: paused;
+  margin-bottom: 1.5rem;
+}
+
+.BusCard:hover,
+.BusCard:active {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.082);
+  --visibility: visible;
+}
+
+// @keyframes onHover {
+//   0% {
+//     box-shadow: 0 10px 20px rgba(0, 0, 0, 0);
+//   }
+
+//   50% {
+//     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.068);
+//   }
+
+//   100% {
+//     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.082);
+//   }
+// }
+
+.BusDetails {
+  display: block;
+  padding-left: 10px;
+}
+
+.BusOptions {
+  margin-top: 2rem;
+  display: block;
+}
+
+.BusName {
+  padding-top: 8px;
+  height: 100%;
+  display: inline-block;
+  width: 25%;
+}
+
+.BusPickUpTime {
+  display: inline-block;
+  width: 15%;
+  height: 100%;
+}
+
+.BusNameDetail {
+  color: rgb(5, 5, 63);
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.BusTypeDetail,
+.BusPickUpPointDetail,
+.BusDropPointDetail {
+  color: #7e7e8c;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  margin-top: 16px;
+}
+
+.BusPickUpPointDetail,
+.BusDropPointDetail {
+  color: #7e7e8c;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.BusPickUpPointDetail {
+  margin-top: 12px;
+}
+
+.BusPickUpTimeDetail {
+  padding-top: 8px;
+  color: #3e3e52;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 19px;
+  vertical-align: baseline;
+}
+
+.BusDuration {
+  padding-top: 12px;
+  color: #7e7e8c;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 400;
+  display: inline-block;
+  width: 15%;
+  vertical-align: top;
+}
+
+.BusDropTime {
+  display: inline-block;
+  width: 15%;
+}
+
+.BusDropTimeDetail {
+  padding-top: 8px;
+  color: #3e3e52;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 19px;
+  vertical-align: baseline;
+}
+
+.BusPrice {
+  display: inline-block;
+  width: 15%;
+  vertical-align: top;
+  color: #4a4a4a;
+  font-family: Montserrat;
+  font-size: 19px;
+  font-weight: 700;
+  padding-top: 0.5rem;
+}
+
+.BusPriceCurrency {
+  color: #7e7e8c;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.BusSeats {
+  display: inline-block;
+  width: 15%;
+}
+
+.BusOptionsAll {
+  visibility: var(--visibility);
+  text-align: right;
+  text-decoration-line: none;
+}
+
+.BusOptionsViewSeats {
+  font-family: Montserrat;
+  font-size: 15px;
+  position: relative;
+  background-color: rgba(17, 105, 74, 0.8);
+  color: #fff;
+  border: none;
+  outline: none;
+  height: 1.7rem;
+  width: 7rem;
+}
+
+.BusOptionsViewButton {
+  text-align: right;
+}
+
+.BusOptionsLinks {
+  text-decoration-line: none;
+}
