@@ -1,0 +1,18 @@
+.FilterPane {
+  display: inline-block;
+  flex-direction: column;
+  width: 20%;
+  background-color: brown;
+  vertical-align: top;
+}
+
+.Buses {
+  display: inline-block;
+  flex-direction: column;
+  width: 78%;
+  margin-left: 2%;
+}
+
+.BusesList {
+  list-style: none;
+}
